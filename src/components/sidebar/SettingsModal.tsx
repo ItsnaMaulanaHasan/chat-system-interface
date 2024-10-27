@@ -58,11 +58,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, currentU
                 <label className="block text-sm font-medium leading-6 text-gray-900">Photo</label>
                 <div className="mt-2 flex items-center gap-x-3">
                   <Image width="48" height="48" className="rounded-full" src={image || currentUser?.image || "/images/placeholder.png"} alt="Avatar" />
-                  <CldUploadButton options={{ maxFiles: 1 }} onUpload={handleUpload} uploadPreset="mgos1gte">
-                    <Button disabled={isLoading} secondary type="button">
-                      Change
-                    </Button>
-                  </CldUploadButton>
+                  <CldUploadButton options={{ maxFiles: 1 }} onUpload={handleUpload} uploadPreset="mgos1gte"></CldUploadButton>
                 </div>
               </div>
             </div>

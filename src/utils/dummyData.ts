@@ -11,7 +11,7 @@ export const currentUser: User = {
 export const dummyUsers: User[] = [
   {
     id: "1",
-    name: "HasanMaulana",
+    name: "Agussalim",
     email: "current@example.com",
     image: "/images/avatar4.jpg",
   },

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import axios from "axios";
@@ -5,10 +6,9 @@ import { useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import Avatar from "../Avatar";
 import LoadingModal from "../LoadingModal";
-import { User } from "@/types";
 
 interface UserBoxProps {
-  data: User;
+  data: any;
 }
 
 const UserBox: React.FC<UserBoxProps> = ({ data }) => {
