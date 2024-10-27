@@ -1,10 +1,7 @@
 "use client";
 
-// import axios from "axios";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-// import { toast } from "react-hot-toast";
 import Select from "../inputs/Select";
 import Modal from "../Modal";
 import Button from "../Button";
@@ -18,7 +15,6 @@ interface GroupChatModalProps {
 }
 
 const GroupChatModal: React.FC<GroupChatModalProps> = ({ isOpen, onClose, users }) => {
-  // const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -38,18 +34,6 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({ isOpen, onClose, users 
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
-
-    // axios
-    //   .post("/api/conversations", {
-    //     ...data,
-    //     isGroup: true,
-    //   })
-    //   .then(() => {
-    //     router.refresh();
-    //     onClose();
-    //   })
-    //   .catch(() => toast.error("Something went wrong"))
-    //   .finally(() => setIsLoading(false));
 
     console.log(data);
     setIsLoading(true);

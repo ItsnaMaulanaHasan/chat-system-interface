@@ -1,18 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Avatar from "@/components/Avatar";
 import clsx from "clsx";
-import { format } from "date-fns";
 import Image from "next/image";
 import { useState } from "react";
 import ImageModal from "./ImageModal";
 
 interface MessageBoxProps {
   data: any;
-  isLast?: boolean;
 }
 
-const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
+const MessageBox: React.FC<MessageBoxProps> = ({ data }) => {
   const [imageModalOpen, setImageModalOpen] = useState(false);
 
   //this is current user email

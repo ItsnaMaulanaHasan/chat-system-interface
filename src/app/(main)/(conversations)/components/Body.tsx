@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import MessageBox from "./MessageBox";
 
 interface BodyProps {
@@ -17,7 +18,7 @@ const Body: React.FC<BodyProps> = ({ initialMessage }) => {
   return (
     <div className="flex-1 overflow-y-auto">
       {initialMessage?.map((message, i) => (
-        <MessageBox isLast={i === initialMessage?.length - 1} key={message.id} data={message} />
+        <MessageBox key={message.id} data={message} />
       ))}
       <div ref={bottomRef} className="pt-24" />
     </div>
