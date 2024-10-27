@@ -1,7 +1,5 @@
 "use client";
 
-import useConversation from "@/hooks/useConversation";
-import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import Modal from "./Modal";
 import { FiAlertTriangle } from "react-icons/fi";
@@ -14,23 +12,12 @@ interface ConfirmModalProps {
 }
 
 const ConfirmModal: React.FC<ConfirmModalProps> = ({ isOpen, onClose }) => {
-  const router = useRouter;
-  const { conversationId } = useConversation();
   const [isLoading, setIsLoading] = useState(false);
 
   const onDelete = useCallback(() => {
     setIsLoading(true);
-
-    axios
-      .delete(`/api/conversations/${conversationId}`)
-      .then(() => {
-        onClose();
-        router.push("/conversations");
-        router.refresh();
-      })
-      .catch(() => toast.error("Something went wrong"))
-      .finally(() => setIsLoading(false));
-  }, [conversationId, router, onClose]);
+    console.log("delete");
+  }, []);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>

@@ -16,7 +16,7 @@ const Home = () => {
   const [selectedData, setSelectedData] = useState({ room: {}, comments: [] });
 
   useEffect(() => {
-    fetch("https://gist.githubusercontent.com/asharijuang/23745f3132fa30e666db68d2bf574e4a/raw/5d556dbb9c2aea9fdf3e1ec96e45f62a88cea7b6/chat_response.json")
+    fetch("https://gist.githubusercontent.com/ItsnaMaulanaHasan/bf52fe21edf9b38595747bb2c97aacce/raw/e15d99340df61a782730da640ad022140e120f03/chat-data.json")
       .then((response) => response.json())
       .then((json) => setData(json.results));
   }, []);

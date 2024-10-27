@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const statusText = useMemo(() => {
-    return conversation.room.participant.length > 2 ? `${conversation.room.participant.length} members` : "Active";
+    return conversation?.room?.participant?.length > 2 ? `${conversation?.room?.participant?.length} members` : "Active";
   }, [conversation]);
 
   return (
