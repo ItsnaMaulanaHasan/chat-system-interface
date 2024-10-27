@@ -17,7 +17,7 @@ const Body: React.FC<BodyProps> = ({ initialMessage }) => {
 
   return (
     <div className="flex-1 overflow-y-auto">
-      {initialMessage?.map((message, i) => (
+      {initialMessage?.map((message) => (
         <MessageBox key={message.id} data={message} />
       ))}
       <div ref={bottomRef} className="pt-24" />

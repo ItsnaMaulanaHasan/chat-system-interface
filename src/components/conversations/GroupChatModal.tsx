@@ -10,7 +10,7 @@ import { User } from "@/types";
 
 interface GroupChatModalProps {
   isOpen?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
   users: User[];
 }
 
@@ -39,7 +39,7 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({ isOpen, onClose, users 
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      onClose?.();
+      onClose();
     }, 1000);
   };
 
