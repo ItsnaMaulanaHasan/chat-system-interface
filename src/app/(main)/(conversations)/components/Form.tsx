@@ -9,12 +9,7 @@ import { HiPaperAirplane } from "react-icons/hi2";
 import { CldUploadButton } from "next-cloudinary";
 
 const Form = () => {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<FieldValues>({
+  const { register, handleSubmit, setValue } = useForm<FieldValues>({
     defaultValues: {
       message: "",
     },
