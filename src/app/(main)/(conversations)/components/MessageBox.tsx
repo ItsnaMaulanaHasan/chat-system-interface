@@ -15,7 +15,6 @@ interface MessageBoxProps {
 
 const MessageBox: React.FC<MessageBoxProps> = ({ data }) => {
   const [imageModalOpen, setImageModalOpen] = useState(false);
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [pdfModalOpen, setPdfModalOpen] = useState(false);
 
   //this is current user email
@@ -42,15 +41,15 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data }) => {
         </div>
         <div className={message}>
           <ImageModal src={data?.message} isOpen={imageModalOpen} onClose={() => setImageModalOpen(false)} />
-          <VideoModal src={data?.message} isOpen={videoModalOpen} onClose={() => setVideoModalOpen(false)} />
           <PdfModal src={data?.message} isOpen={pdfModalOpen} onClose={() => setPdfModalOpen(false)} />
 
           {data?.type === "image" ? (
             <Image onClick={() => setImageModalOpen(true)} alt="Image" height="200" width="200" src={data?.message} className="object-cover cursor-pointer hover:scale-110 transition translate" />
           ) : data?.type === "video" ? (
-            <div onClick={() => setVideoModalOpen(true)} className="cursor-pointer text-blue-500 underline">
-              View Video
-            </div>
+            <video controls height="200" width="200" className="object-cover">
+              <source src={data?.message} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           ) : data?.type === "pdf" ? (
             <div onClick={() => setPdfModalOpen(true)} className="cursor-pointer text-blue-500 underline">
               View PDF

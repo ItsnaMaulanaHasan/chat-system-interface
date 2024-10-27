@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Modal from "../Modal";
@@ -13,11 +12,10 @@ import Button from "../Button";
 interface SettingsModalProps {
   isOpen?: boolean;
   onClose: () => void;
-  currentUser: User;
+  currentUser: any;
 }
 
 const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, currentUser }) => {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -41,17 +39,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, currentU
     });
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = () => {
     setIsLoading(true);
 
-    axios
-      .post("api/settings", data)
-      .then(() => {
-        router.refresh();
-        onClose();
-      })
-      .catch(() => toast.error("Something went wrong!"))
-      .finally(() => setIsLoading(false));
+    console.log("submit");
   };
 
   return (

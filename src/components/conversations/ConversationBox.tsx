@@ -19,7 +19,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({ data, selectData, sel
   const handleClick = useCallback(() => {
     router.push(`?id=${data.room.id}`);
     selectData(data);
-  }, [data.room.id, router]);
+  }, [data, router]);
 
   const lastMessage = useMemo(() => {
     const messages = data.comments || [];

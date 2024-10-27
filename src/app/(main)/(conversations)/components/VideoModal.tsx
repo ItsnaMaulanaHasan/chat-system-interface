@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react";
+import React, { useRef, useEffect } from "react";
 
 interface VideoModalProps {
   isOpen?: boolean;
@@ -13,8 +13,11 @@ const VideoModal: React.FC<VideoModalProps> = ({ src, isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen && videoRef.current) {
       videoRef.current.load();
+      videoRef.current.play();
     }
-  }, [isOpen, src]); 
+  }, [isOpen, src]);
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -22,12 +25,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ src, isOpen, onClose }) => {
         <button onClick={onClose} className="text-red-500 float-right">
           Close
         </button>
-        <video
-          ref={videoRef}
-          controls
-          className="w-full h-auto mt-4"
-          onCanPlay={() => videoRef.current?.play()}
-        >
+        <video ref={videoRef} controls className="w-full h-auto mt-4" autoPlay>
           <source src={src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>

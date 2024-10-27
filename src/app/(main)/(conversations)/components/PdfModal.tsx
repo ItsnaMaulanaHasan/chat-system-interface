@@ -7,8 +7,6 @@ interface PdfModalProps {
 }
 
 const PdfModal: React.FC<PdfModalProps> = ({ src, isOpen, onClose }) => {
-  if (!isOpen) return null;
-
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
   useEffect(() => {
@@ -28,6 +26,8 @@ const PdfModal: React.FC<PdfModalProps> = ({ src, isOpen, onClose }) => {
 
     fetchPdf();
   }, [src]);
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
