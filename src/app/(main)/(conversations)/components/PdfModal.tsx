@@ -1,5 +1,3 @@
-import React, { useRef, useEffect } from "react";
-
 interface PdfModalProps {
   isOpen?: boolean;
   onClose: () => void;
@@ -7,26 +5,6 @@ interface PdfModalProps {
 }
 
 const PdfModal: React.FC<PdfModalProps> = ({ src, isOpen, onClose }) => {
-  const iframeRef = useRef<HTMLIFrameElement | null>(null);
-
-  useEffect(() => {
-    const fetchPdf = async () => {
-      const response = await fetch(src);
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-
-      if (iframeRef.current) {
-        iframeRef.current.src = url;
-      }
-
-      return () => {
-        URL.revokeObjectURL(url);
-      };
-    };
-
-    fetchPdf();
-  }, [src]);
-
   if (!isOpen) return null;
 
   return (
@@ -35,7 +13,7 @@ const PdfModal: React.FC<PdfModalProps> = ({ src, isOpen, onClose }) => {
         <button onClick={onClose} className="text-red-500 float-right">
           Close
         </button>
-        {src ? <iframe ref={iframeRef} className="w-full h-96 mt-4" title="PDF Preview"></iframe> : null}
+        <iframe src={`https://docs.google.com/viewer?url=${src}&embedded=true`} width="100%" height="600px" title="PDF Viewer" style={{ border: "none" }} />
       </div>
     </div>
   );
