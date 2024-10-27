@@ -7,7 +7,6 @@ interface VideoModalProps {
 }
 
 const VideoModal: React.FC<VideoModalProps> = ({ src, isOpen, onClose }) => {
-  if (!isOpen) return null;
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {

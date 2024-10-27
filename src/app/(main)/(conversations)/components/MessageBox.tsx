@@ -6,7 +6,6 @@ import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 import ImageModal from "./ImageModal";
-import VideoModal from "./VideoModal";
 import PdfModal from "./PdfModal";
 
 interface MessageBoxProps {
